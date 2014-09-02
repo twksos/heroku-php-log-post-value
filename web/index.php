@@ -17,6 +17,11 @@ $app->get('/', function() use($app) {
   return 'Hello';
 });
 
+$app->post('/', function() use($app) {
+  $app['monolog']->addDebug(var_export($_POST,true));
+  return 'success';
+});
+
 $app->run();
 
 ?>
